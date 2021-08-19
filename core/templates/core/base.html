@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-cl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--link bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.css"/>
+
+    <!--CSS base project-->
+    <link rel="stylesheet" href="{% static 'core/css/my_styles.css' %}">
+    <link rel="icon" type="image/ico" href="{% static 'img/rocket_512x512.png' %}">
+
+    <!--CSS app-->
+    {% block css_app %}{% endblock %}
+
+    <!-- JS Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body onload="FechaHora()">  
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'core:home' %}">
+                <img class="img-nav" src="{% static 'core/img/rocket_512x512.png' %}" alt="Rocket">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="{% url 'core:home' %}">Home</a>
+                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="{% url 'core:projects' %}">Projects</a>
+                    <a class="nav-link" href="{% url 'core:contact' %}">Contact</a>
+                </div>     
+                        
+            </div>
+            <div id='reloj' class="text-white"></div>   
+        </div>
+    </nav>  
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer mt-4">
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.js"></script>
+
+    <script src="{% static 'core/js/time.js' %}"></script>
+</body>
+</html>

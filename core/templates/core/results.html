@@ -1,0 +1,41 @@
+{% extends "core/base.html" %}
+
+{% block title %}Exito!!!{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        {% if request.session.errores  %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {% for error in request.session.errores %}
+                <strong>{{error}}</strong><br> 
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Email</th>
+                        <th>Nombre</th>
+                        <th>Ciudad Natal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>{{request.session.email}}</td>
+                    <td>{{request.session.nombre}}</td>
+                    <td>{{request.session.ciudad}}</td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <h3 class="text-primary">Cantidad de personas que se han registrado: {{request.session.contador}}</h3>
+    </div>
+    
+</div>
+
+{% endblock %}

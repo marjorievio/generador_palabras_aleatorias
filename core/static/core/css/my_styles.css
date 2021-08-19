@@ -1,0 +1,10 @@
+.img-nav{
+    width: 80px;
+    height: 80px;
+}
+
+.carouselIndicators .carousel-indicators button{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}

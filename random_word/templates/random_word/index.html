@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block css_app %}
+<link rel="stylesheet" href="{% static 'random_word/css/random_word.css' %}">
+{% endblock %}
+
+{% block title %}Random Word{% endblock %}
+
+{% block content %}
+<div class="container mt-4 text-center">
+    <h3>Random Word (attemp #{{request.session.random_count}})</h3>
+    <h1>{{random_word}}</h1>
+    <a class="btn btn-secondary m-5" href="{% url 'random_word:random' %}">Generate</a>
+    <a class="btn btn-secondary m-5" href="{% url 'random_word:reset' %}">Reset</a>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "core/base.html"%}
+
+{% block title %}Proyectos{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row text-center">
+        <div class="col-sm-6">
+            <a href="{% url 'random_word:home' %}" type="button" class="btn btn-secondary">Random Words</a>
+        </div>
+        <div class="col-sm-6">
+            <a href="#" type="button" class="btn btn-secondary">Ninja Gold</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
